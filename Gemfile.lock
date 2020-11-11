@@ -28,6 +28,7 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    securerandom (0.1.0)
     slop (3.4.7)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
@@ -40,6 +41,7 @@ DEPENDENCIES
   activerecord (= 4.2.6)
   pg
   pry
+  securerandom
 
 BUNDLED WITH
    1.16.1

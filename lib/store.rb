@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 class Store < ActiveRecord::Base
   has_many :employees
-  validates :name, length: {minimum: 3}
-  validates :annual_revenue, numericality: {greater_than: 0}
+  validates :name, length: { minimum: 3 }
+  validates :annual_revenue, numericality: { greater_than: 0 }
   validate :carry_apparel
+
+  before_destroy :check_store
 
   def carry_apparel
     if mens_apparel == false && womens_apparel == false
@@ -10,5 +14,7 @@ class Store < ActiveRecord::Base
     end
   end
 
-
+  def check_store
+    false unless employees.empty?
+  end
 end
